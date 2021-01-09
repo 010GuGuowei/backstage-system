@@ -1,0 +1,90 @@
+
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<title>登录</title>
+		<link href="stylesheets/default.css" rel="stylesheet" type="text/css" />
+		<!--必要样式-->
+		<link href="stylesheets/styles.css" rel="stylesheet" type="text/css" />
+		<link href="stylesheets/demo.css" rel="stylesheet" type="text/css" />
+		<link href="stylesheets/loaders.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body>
+		<form action="/login/in" method="post">
+		<div class='login'>
+			<div class='login_title'>
+				<span>管理员登录</span>
+			</div>
+			<div class='login_fields'>
+				<div class='login_fields__user'>
+					<div class='icon'>
+						<img alt="" src="images/img/user_icon_copy.png">
+					</div>
+					<input name="username" placeholder='请输入用户名' maxlength="16" type='text' autocomplete="off" value="" />
+					<div class='validation'>
+						<img alt="" src="images/img/tick.png">
+					</div>
+				</div>
+				<div class='login_fields__password'>
+					<div class='icon'>
+						<img alt="" src="images/img/lock_icon_copy.png" >
+					</div>
+					<input name="pass" placeholder='请输入密码' maxlength="16" type='password' autocomplete="off">
+					<div class='validation'>
+						<img alt="" src="images/img/tick.png">
+					</div>
+				</div>
+				<div class='login_fields__password'>
+		
+
+					<div class='validation' style="opacity: 1; right: -5px;top: -3px;">
+						<canvas class="J_codeimg" id="myCanvas" onclick="Code();">对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>
+					</div>
+				</div>
+				<div class='login_fields__submit'>
+					<input type='submit' value='登录'>
+				</div>
+			</div>
+
+
+		</form>
+			<div class='success'>
+			</div>
+			<div class='disclaimer'>
+				<a href='/register'><p>还没有账号,点击注册</p></a>
+			</div>
+		</div>
+		<div class='authent'>
+			<div class="loader" style="height: 44px;width: 44px;margin-left: 28px;">
+				<div class="loader-inner ball-clip-rotate-multiple">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<p>认证中...</p>
+		</div>
+		<div class="OverWindows"></div>
+		
+		
+		
+		<link href="https://www.layuicdn.com/layui-v1.0.9-rls/css/layui.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdn.staticfile.org/jqueryui/1.11.1/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="https://www.layuicdn.com/layui-v1.0.9-rls/layui.js"></script>
+
+		<script type="text/javascript" src="img/ThreeWebGL.js"></script>
+		<script type="text/javascript" src="img/ThreeExtras.js"></script>
+		<script type="text/javascript" src="img/Detector.js"></script>
+		<script type="text/javascript" src="img/RequestAnimationFrame.js"></script>
+	
+	</body>
+
+</html>
