@@ -7,7 +7,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 
 // 路由守卫 session
-// var session = require('express-session');
+var session = require('express-session');
 
 
 //日志的一个引入包  暂时知道这些就行了  
@@ -45,46 +45,46 @@ app.use(express.static(path.join(__dirname, 'public')));
 // cookie 看门狗
 app.use(cookieParser());
 
-app.all('*', function (req, res, next) {
-  console.log('cookie看门狗看门狗');
-  console.log('cookie', req.cookies);
-  console.log('req.url', req.url);
-  // 判断状态是否为登录或者已登录
-  if (req.url == '/login' || req.url == '/login/in' || req.cookies.isLogin === 'ok') {
-    // 如果是则继续
-    next();
-  } else {    // 不是则转到登录页面
-    console.log('进入cookie路由守卫else')
-    res.redirect("/login")
-  }
-})
+// app.all('*', function (req, res, next) {
+//   console.log('cookie看门狗看门狗');
+//   console.log('cookie', req.cookies);
+//   console.log('req.url', req.url);
+//   // 判断状态是否为登录或者已登录
+//   if (req.url === '/login' || req.url === '/login/in' || req.cookies.isLogin === 'ok' || req.url === '/register') {
+//     // 如果是则继续
+//     next();
+//   } else {    // 不是则转到登录页面
+//     console.log('进入cookie路由守卫else')
+//     res.redirect("/login")
+//   }
+// })
 
 
 // 看门狗 session
-// app.use(
-//   session({
-//     secret: 'adsk',
-//     // 强制保存 推荐false
-//     resave: false,
-//     // 初始化session存储 默认为true
-//     saveUninitialized: false,
-//     // 设置过期时间
-//     cookie: { maxAge: 1000 * 60 * 60 },
-//   })
-// )
+app.use(
+  session({
+    secret: 'adsk',
+    // 强制保存 推荐false
+    resave: false,
+    // 初始化session存储 默认为true
+    saveUninitialized: false,
+    // 设置过期时间
+    cookie: { maxAge: 1000 * 60  },
+  })
+)
 
-// app.all('*', (req, res, next) => {
-//   console.log('进入全局session守卫');
-//   console.log('req.session',req.session);
-//   if(req.session.isLogin === 'ok' || req.url ==='/login' || req.url ==='/login/in') {
+app.all('*', (req, res, next) => {
+  console.log('进入全局session守卫');
+  console.log('req.session',req.session);
+  if(req.session.isLogin === 'ok' || req.url ==='/login' || req.url ==='/login/in' || req.url ==='/register') {
 
-//     next()
-//   }else {
-//     console.log('session 看门狗else')
-//     res.redirect('/login')
-//   }
+    next()
+  }else {
+    console.log('session 看门狗else')
+    res.redirect('/login')
+  }
 
-// })
+})
 
 
 

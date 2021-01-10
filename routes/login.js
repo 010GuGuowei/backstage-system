@@ -24,8 +24,8 @@ router.post('/in', function (req, res, next) {
         if (data) {
 
             console.log('登陆成功');
-            res.cookie ('isLogin', 'ok');
-            // req.session.isLogin = 'ok';
+            // res.cookie ('isLogin', 'ok');
+            req.session.isLogin = 'ok';
             res.redirect('/pro');
         } else {
             // 跳转到注册
