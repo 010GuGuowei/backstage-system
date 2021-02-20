@@ -21,8 +21,8 @@ router.post('/in', function (req, res, next) {
         if (err) {
             console.log(err);
         }
-        if (obj) {         // 用户名已存在则重新返回注册页面
-            res.render("register")
+        if (data) {         // 用户名已存在则重新返回注册页面
+            res.redirect("register")
 
         } else {        // 不存在则写入数据,跳转到登录页面
             user.insertMany(obj, (err, data) => {

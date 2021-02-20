@@ -69,14 +69,14 @@ app.use(
     // 初始化session存储 默认为true
     saveUninitialized: false,
     // 设置过期时间
-    cookie: { maxAge: 1000 * 60  },
+    cookie: { maxAge: 1000 * 60 * 60 },
   })
 )
 
 app.all('*', (req, res, next) => {
   console.log('进入全局session守卫');
   console.log('req.session',req.session);
-  if(req.session.isLogin === 'ok' || req.url ==='/login' || req.url ==='/login/in' || req.url ==='/register') {
+  if(req.session.isLogin === 'ok' || req.url ==='/login' || req.url ==='/login/in' || req.url ==='/register' || req.url ==='/register/in') {
 
     next()
   }else {
