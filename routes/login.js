@@ -29,7 +29,7 @@ router.post('/in', function (req, res, next) {
             res.redirect('/pro');
         } else {
             // 跳转到注册
-            res.redirect("register")
+            res.redirect("/register")
         }
     })
 })
